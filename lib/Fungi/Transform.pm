@@ -5,6 +5,8 @@ use Moo;
 use Getopt::Long;
 use Data::Dumper::Concise;
 
+with 'Fungi::Role::Spec';
+
 =head1 Usage
 
     perl -Ilib script/wtf-gi.pl --name PublishPage --transform web_simple

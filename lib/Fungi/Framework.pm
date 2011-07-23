@@ -4,10 +4,6 @@ use Moo;
 
 with 'Fungi::Role::Spec';
 
-has 'app_name' => (
-    is => 'ro',
-);
-
 has 'modules_to_use' => (
     is => 'ro',
     default => sub {

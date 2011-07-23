@@ -8,12 +8,15 @@ sub _build_preamble {
     
     my $app_name = lc($self->app_name);
     return qq{
-my (\$${app_name});
+set 'logger'      => 'console';
+set 'log'         => 'debug';
+set 'show_errors' => 1;
+set 'access_log'  => 1;
+        
 before sub {
-    \$${app_name} = request->env->{${app_name}};
-    var ${app_name} => \$${app_name};
-}
+    var ${app_name} => request->env->{${app_name}};
 };
+    };
 }
 
 sub builder {

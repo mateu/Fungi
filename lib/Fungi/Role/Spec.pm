@@ -3,6 +3,12 @@ package Fungi::Role::Spec;
 use Moo::Role;
 use Mojito::Types;
 
+has 'app_name' => (
+    is => 'ro',
+    isa => Mojito::Types::NoRef,
+    required => 1,
+);
+
 has 'spec_file' => (
     is => 'ro',
     isa => Mojito::Types::NoRef,

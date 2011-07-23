@@ -4,12 +4,13 @@ use Fungi::Framework::Dancer;
 use Fungi::Transform::Dancer;
 use Data::Dumper::Concise;
 
-my $dancer = Fungi::Framework::Dancer->new( app_name => 'MyAct' );
+my $app = 'Mojito';
+my $dancer = Fungi::Framework::Dancer->new(app_name => $app);
 say $dancer->use_modules;
 say $dancer->preamble;
 
 my $messages = $dancer->spec;
-my $transformer = Fungi::Transform::Dancer->new;
+my $transformer = Fungi::Transform::Dancer->new(app_name => $app);
 foreach my $message (@{$messages}) {
     say $transformer->transform($message);
 }
