@@ -9,7 +9,7 @@ my $dancer = Fungi::Framework::Dancer->new(app_name => $app);
 say $dancer->use_modules;
 say $dancer->preamble;
 
-my $messages = $dancer->spec;
+my $messages = $dancer->fungi_spec;
 my $transformer = Fungi::Transform::Dancer->new(app_name => $app);
 foreach my $message (@{$messages}) {
     say $transformer->transform($message);
@@ -17,4 +17,4 @@ foreach my $message (@{$messages}) {
 
 say $dancer->builder;
 
-#say Dumper $dancer->spec;
+#say Dumper $dancer->fungi_spec;

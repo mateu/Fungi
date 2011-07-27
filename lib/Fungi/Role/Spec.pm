@@ -9,30 +9,40 @@ has 'app_name' => (
     required => 1,
 );
 
-has 'spec_file' => (
+has 'fungi_spec_file' => (
     is => 'ro',
     isa => Mojito::Types::NoRef,
     'default' => sub { '/home/hunter/dev/Mojito/script/mojito.wtf-gi.pl' },
 );
 
-has 'spec' => (
+has 'fungi_spec' => (
     is => 'ro',
     isa => Mojito::Types::ArrayRef,
     lazy => 1,
-    builder => '_build_spec',
+    builder => '_build_fungi_spec',
 );
 
-=head2 _build_spec
+has 'spore_spec_file' => (
+    is => 'ro',
+    isa => Mojito::Types::NoRef,
+);
+
+has 'spore_spec' => (
+    is => 'ro',
+    isa => Mojito::Types::ArrayRef,
+);
+
+=head2 _build_fungi_spec
 
 Read the WTF-GI Application specification file.
 
 =cut
 
-sub _build_spec {
+sub _build_fungi_spec {
     my $self = shift;
     
     # TODO: make param to handle arbitrary path
-    my $spec_file  = $self->spec_file;
+    my $spec_file  = $self->fungi_spec_file;
 
     # Config
     my $spec = [];
